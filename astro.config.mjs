@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
+  base: '/content-risk-calendar/',
   integrations: [tailwind()],
   server: {
     headers: {

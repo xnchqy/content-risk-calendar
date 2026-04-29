@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL;
+
 const events = await getCollection('events');
 const months = await getCollection('months');
 
@@ -179,7 +181,7 @@ for (const e of events) {
                           <span class="text-xs font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded">今天</span>
                         )}
                       </div>
-                      <a href={'/events/' + event.slug} class="shrink-0 text-xs text-gray-400 hover:text-blue-600 hover:underline whitespace-nowrap">
+                      <a href={base + 'events/' + event.slug} class="shrink-0 text-xs text-gray-400 hover:text-blue-600 hover:underline whitespace-nowrap">
                         详情 →
                       </a>
                     </div>
