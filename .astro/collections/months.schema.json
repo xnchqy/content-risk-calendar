@@ -1,0 +1,28 @@
+{
+  "$ref": "#/definitions/months",
+  "definitions": {
+    "months": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "number"
+        },
+        "month": {
+          "type": "number"
+        },
+        "deepStrategy": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "year",
+        "month"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

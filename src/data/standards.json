@@ -1,0 +1,583 @@
+[
+  {
+    "category": "科技",
+    "framework": "设备管控",
+    "subject": "“星链”信息",
+    "keywords": "星链锅、支架、线缆、解调器、专用无线路由器等",
+    "detail": "清理有关设备的介绍、测评、安装、售卖信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "行业盛会",
+    "subject": "乌镇峰会",
+    "keywords": "企业负责人穿着、聚会、圈子、“雷人雷语”",
+    "detail": "不炒作花边新闻；不报道互联网治理不同观点与论调、敏感问题；不转载外媒消息。"
+  },
+  {
+    "category": "科技",
+    "framework": "行业盛会",
+    "subject": "中关村论坛/互联网大会",
+    "keywords": "负面评价内容",
+    "detail": "严控并避免出现任何涉及会议的负面内容。"
+  },
+  {
+    "category": "科技",
+    "framework": "技术评估",
+    "subject": "核心技术掌握情况",
+    "keywords": "宣传“中国尚未掌握核心技术”、“国内技术不行”",
+    "detail": "严禁传播此类贬低国内技术的文章。"
+  },
+  {
+    "category": "科技",
+    "framework": "芯片产业",
+    "subject": "国产通信/网络芯片厂商",
+    "keywords": "国产通信和网络芯片厂商核心技术、主要产品、应用方案、目标市场等内容的文章",
+    "detail": "严禁汇编整理此类厂商的深度技术与市场信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "存储芯片",
+    "subject": "紫光集团项目",
+    "keywords": "紫光集团轴心主要存储芯片项目",
+    "detail": "相关内容不报道、不转载、不评论。"
+  },
+  {
+    "category": "科技",
+    "framework": "行业动态",
+    "subject": "北汽福田宝沃汽车",
+    "keywords": "财务枯竭、无力偿债，公司向法院申请破产清算",
+    "detail": "低调淡化处理；不对内容自行解读；不集纳旧闻。"
+  },
+  {
+    "category": "科技",
+    "framework": "国际博弈",
+    "subject": "中美对比",
+    "keywords": "重大科技/经济领域的中美实力对比",
+    "detail": "严管“芯片博弈”等违规自采内容；普通商业领域对比除外。"
+  },
+  {
+    "category": "科技",
+    "framework": "敏感词管理",
+    "subject": "核心技术敏感领域",
+    "keywords": "核心技术指：电子信息、集成电路、网络数据安全、生物医药、人工智能、新能源、网络通信、高端仪器、装备制造、核能开发、国防科研、航空航天、先进技术等。",
+    "detail": "严禁自行采编发布相关白皮书；清理过于详细的介绍内容。"
+  },
+  {
+    "category": "科技",
+    "framework": "关键厂商",
+    "subject": "中芯国际量产与华为收购传闻",
+    "keywords": "“中芯国际+7纳米/nm实现量产”",
+    "detail": "全面清理/拦截相关音视频、图片及关键词，禁止新增。"
+  },
+  {
+    "category": "科技",
+    "framework": "重大工程",
+    "subject": "中华版本工程",
+    "keywords": "《洞库：中华版本工程备战备灾特藏核心》",
+    "detail": "部分画面涉及涉密，严禁公开报道。"
+  },
+  {
+    "category": "科技",
+    "framework": "关键厂商",
+    "subject": "中芯国际软件项目",
+    "keywords": "“中芯国际软件项目停摆”",
+    "detail": "严禁传播此类负面生产动向信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "技术合作",
+    "subject": "中西芯片商业合作",
+    "keywords": "涉及紫光等厂商的中外技术/商业合作",
+    "detail": "严格管控中西芯片方面的商业合作"
+  },
+  {
+    "category": "科技",
+    "framework": "实力对比",
+    "subject": "高科技公司对比",
+    "keywords": "中西方高科技公司实力对比、产品合作",
+    "detail": "严防通过对比抹黑我方科技实力。"
+  },
+  {
+    "category": "科技",
+    "framework": "软件项目",
+    "subject": "上扬软件/中芯CIM",
+    "keywords": "“中芯国际软件项目停摆”“承包方上扬软件回应负责的中芯国际CIM项目被叫停：项目并未暂停”",
+    "detail": "清理涉及“项目停摆”或“承包方回应”等敏感信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "航空工业",
+    "subject": "C919大型客机",
+    "keywords": "关于C919大型客机项目科研情况及有关成果，网站不宣传政府支持、资金支持等相关内容。客观宣传我民用飞机研制能力和水平，不夸大、不拔高。",
+    "detail": "禁用“国际领先”“国产化”“卡脖子”等词；不宣传资金支持。"
+  },
+  {
+    "category": "科技",
+    "framework": "出口管制",
+    "subject": "高压水炮类产品",
+    "keywords": "商务部、海关总署、国防科工局发布的管制公告《关于对高压水炮类产品实施出口管制的公告》",
+    "detail": "不作主动宣传；不炒热话题；不擅自转引境外信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "技术合作",
+    "subject": "华为与长春光机所",
+    "keywords": "“华为与长春光机所合作”、“二道区台湾广场”",
+    "detail": "全面清理相关敏感信息，并举一反三"
+  },
+  {
+    "category": "科技",
+    "framework": "行业舆情",
+    "subject": "互联网公司人员优化",
+    "keywords": "小米等公司人员优化",
+    "detail": "以公司发布口径为准；严清借机唱衰科技制造业的言论。"
+  },
+  {
+    "category": "科技",
+    "framework": "人才安全",
+    "subject": "顶级科学家/科研团队",
+    "keywords": "介绍敏感领域科研力量、学术交流、重要活动等信息，披露未公开专家岗位职务、工作履历、研究成果",
+    "detail": "严禁披露科研力量、学术交流、专家信息等敏感信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "军工安全",
+    "subject": "重点型号技术人员",
+    "keywords": "尖端/重点型号技术人员；受聘的境外专家及其工作与活动",
+    "detail": "严控此类人员的工作与活动等敏感信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "战略项目",
+    "subject": "重大工程/全局活动",
+    "keywords": "发布重大项目、研发进展、核心技术、功能定位、坐标位置等信息",
+    "detail": "严禁违规发布此类全局性、战略性涉密信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "新型力量",
+    "subject": "装备试验与部署",
+    "keywords": "新型装备试验和部署信息，如远程精准打击、军事航天、网络攻防、战略投送、人工智能等新型力量",
+    "detail": "严禁披露代号型号、外型特征、参数、内部构造等信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "技术背景",
+    "subject": "军民两用技术",
+    "keywords": "军民两用技术背景、来源和渠道信息",
+    "detail": "严格管控此类背景信息的溯源披露。"
+  },
+  {
+    "category": "科技",
+    "framework": "创新平台",
+    "subject": "实验室/创新平台",
+    "keywords": "国家战略安全设施、自主创新建设项目、实验室和创新平台",
+    "detail": "严禁披露相关建设细节及敏感信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "设施参数",
+    "subject": "科研设施设备",
+    "keywords": "科研设施的设备场景、用途、性能技术指标等",
+    "detail": "严禁泄露敏感科研设施的详细技术参数。"
+  },
+  {
+    "category": "科技",
+    "framework": "数据安全",
+    "subject": "上市公司产值/供应链",
+    "keywords": "上市公司敏感产品产值数据，承担项目、产业布局、供应链信息",
+    "detail": "严禁泄露，防止被外部定点分析。"
+  },
+  {
+    "category": "科技",
+    "framework": "参数详情",
+    "subject": "科技核心技术",
+    "keywords": "敏感领域核心技术项目承担情况、国产化替代、关键技术、薄弱环节及成本价格",
+    "detail": "严禁披露涉科技核心技术关键细节"
+  },
+  {
+    "category": "科技",
+    "framework": "存储技术",
+    "subject": "长江存储裁员",
+    "keywords": "长江存储裁员事件“232层堆叠存储颗粒”**核心敏感技术",
+    "detail": "查删借裁员事件炒作核心敏感技术的文章。"
+  },
+  {
+    "category": "科技",
+    "framework": "账号管理",
+    "subject": "自媒体账号",
+    "keywords": "将“芯智讯”、“问芯Voice”等账号纳入先审后发清单",
+    "detail": "对长期“爆料”敏感领域信息等方式博取眼球的自媒体账号采取有效管控措施"
+  },
+  {
+    "category": "科技",
+    "framework": "信息清理",
+    "subject": "关键核心技术",
+    "keywords": "“7nm DUV光刻机出口”“长春光机所 EUV光源工程样本”“长江存储3D NAND”“长鑫存储拟IPO”“国产光刻机突破封锁 量产”“寒武纪590”“华为将和中科院发布下一代DRAM技术”",
+    "detail": "清理暴露我关键核心技术敏感信息，并举一反三，严控新增"
+  },
+  {
+    "category": "科技",
+    "framework": "行业舆情",
+    "subject": "摩尔线程 (Moore Threads)",
+    "keywords": "“国产 GPU 一哥”、摩尔线程裁员、人员优化",
+    "detail": "严管借裁员事件抹黑国产 GPU 发展；严防唱衰自主算力芯片。"
+  },
+  {
+    "category": "科技",
+    "framework": "出口管制",
+    "subject": "ASML 光刻机许可",
+    "keywords": "ASML 吊销部分 DUV 光刻机出口许可证",
+    "detail": "严禁过度炒作对我国半导体产业链的毁灭性打击；以官方回应为准。"
+  },
+  {
+    "category": "科技",
+    "framework": "国际制裁",
+    "subject": "美国实体清单",
+    "keywords": "壁仞科技 (Biren)、摩尔线程被列入实体清单",
+    "detail": "严控借制裁事件渲染“科技脱钩”恐慌；严禁转发境外对此的唱衰评论。"
+  },
+  {
+    "category": "科技",
+    "framework": "存储技术",
+    "subject": "长鑫存储 (CXMT)",
+    "keywords": "长鑫存储 LPDDR5 核心技术、长鑫裁员",
+    "detail": "查删借裁员事件翻炒其核心存储技术细节及突破路径的文章。"
+  },
+  {
+    "category": "科技",
+    "framework": "芯片博弈",
+    "subject": "英伟达特供芯片",
+    "keywords": "英伟达 H20 芯片、“中国特供版”性能缩水",
+    "detail": "严防借性能对比抹黑我国人工智能算力受限；严禁炒作非对称竞争。"
+  },
+  {
+    "category": "科技",
+    "framework": "产业导向",
+    "subject": "半导体自主化",
+    "keywords": "“科技自立自强”与“外部依赖”对比",
+    "detail": "严控将技术突破与西方断供做强力因果关联；不报道具体攻坚细节。"
+  },
+  {
+    "category": "科技",
+    "framework": "先进封装",
+    "subject": "芯片封装技术",
+    "keywords": "Chiplet (芯粒)、先进封装技术突破",
+    "detail": "严禁泄露国内核心封装工厂的布局、工艺参数及核心设备来源。"
+  },
+  {
+    "category": "科技",
+    "framework": "舆情管控",
+    "subject": "科技企业负面集纳",
+    "keywords": "借具体项目失败、停摆抹黑整体行业",
+    "detail": "严禁对科技领域项目进行负面集纳和专题化炒作。"
+  },
+  {
+    "category": "科技",
+    "framework": "企业舆情",
+    "subject": "小米汽车与北汽合作",
+    "keywords": "北汽收购小米受阻、唱衰本市经济、攻击民营企业发展",
+    "detail": "小米汽车与北汽合作用官方信源。相关话题不上热搜热榜；清理此类负面信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "国际博弈",
+    "subject": "实体清单与关税",
+    "keywords": "政治外交高度敏感；美国将中国等多国 37 家机构列入“实体清单”；美国对电动汽车、商品加关税",
+    "detail": "把握舆论导向，严控借机恶意挑拨中美/中俄关系或唱衰产业的言论。"
+  },
+  {
+    "category": "科技",
+    "framework": "技术评价",
+    "subject": "人工智能实力对比",
+    "keywords": "国内与国外AI技术对比",
+    "detail": "及时处置贬损国内人工智能技术、攻击技术差距过大的言论。"
+  },
+  {
+    "category": "科技",
+    "framework": "安全事故",
+    "subject": "天兵科技事件",
+    "keywords": "天龙三号火箭坠落、天兵科技火箭飞行实验任务失败等负面动向",
+    "detail": "航天火箭试验相关负面动向，客观报道、严禁炒作"
+  },
+  {
+    "category": "科技",
+    "framework": "技术攻防",
+    "subject": "Deepseek 负面舆情",
+    "keywords": "“Deepseek 是剽窃吗？”、“Deepseek 就是盗版”",
+    "detail": "严禁此类说法，查删中国技术抄袭论、骗局论、造假论。"
+  },
+  {
+    "category": "科技",
+    "framework": "技术攻防",
+    "subject": "Deepseek 谣言拦截",
+    "keywords": "梁文峰关于美国网络攻击/算法抄袭指控的回复；360红客联盟“仅有 4 人缴纳社保”即可开发顶尖模型",
+    "detail": "查删此类涉及创始人回复及社保缴纳数额的谣言信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "技术攻防",
+    "subject": "Deepseek 流量炒作",
+    "keywords": "“数字世界上甘岭战役打响”、“全球最大黑客组织暗影帝国攻击”",
+    "detail": "严管此类蹭流量、夸大事实的炒作信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "隐私保护",
+    "subject": "科技主创团队隐私",
+    "keywords": "在创始人梁文峰家附近直播影响其家人正常生活、“特警保护梁文峰回乡过年”",
+    "detail": "严管炒作主创团队个人隐私及影响其家人生活的敏感信息。"
+  },
+  {
+    "category": "科技",
+    "framework": "重大活动",
+    "subject": "2025 中关村论坛",
+    "keywords": "论坛期间（27日至31日）的舆情保障",
+    "detail": "严禁出现唱衰、贬损等负面评价信息。"
+  },
+  {
+    "category": "违法",
+    "framework": "违规交易",
+    "subject": "人乳交易",
+    "keywords": "交易引流、擦边色情服务",
+    "detail": "处置所有正面宣传及引流内容。"
+  },
+  {
+    "category": "违法",
+    "framework": "人口相关",
+    "subject": "非法生育中介",
+    "keywords": "代孕、精子/卵子买卖信息",
+    "detail": "严控相关信息的传播。"
+  },
+  {
+    "category": "违法",
+    "framework": "医药广告",
+    "subject": "生殖广告管控",
+    "keywords": "生殖相关广告",
+    "detail": "归属卫生行政部门管理，未经审批证明严禁发布。"
+  },
+  {
+    "category": "违法",
+    "framework": "网络安全",
+    "subject": "打击翻墙工具",
+    "keywords": "ssR、Tojan、V2Ray、网门、聚缘阁、蓝灯、自由门、赛风、WireGuard、PureVPN、Ivacy、VyprVPN、SurfShark",
+    "detail": "上述词汇为禁止词，严禁在平台出现相关镜像网站或VPN信息。"
+  },
+  {
+    "category": "违法",
+    "framework": "毒品管控",
+    "subject": "涉毒暗语",
+    "keywords": "海洛因、冰毒、大麻、兴奋剂、毒品隐语",
+    "detail": "严禁形成诱导或赞同性意见。"
+  },
+  {
+    "category": "违法",
+    "framework": "动物保护",
+    "subject": "虐杀/非法贸易",
+    "keywords": "贩卖、虐杀、出售动物活体",
+    "detail": "禁止传播相关文字和视频。"
+  },
+  {
+    "category": "违法",
+    "framework": "自然资源",
+    "subject": "野生动植物",
+    "keywords": "捕、食、运、售、养",
+    "detail": "实施全链条式保护管控。"
+  },
+  {
+    "category": "违法",
+    "framework": "网络安全",
+    "subject": "违规加速器/VPN",
+    "keywords": "网络游戏加速器、VPN扩迭版、博主推荐指导",
+    "detail": "清理收集个人信息、IP、电话等侵害青年的内容。"
+  },
+  {
+    "category": "违法",
+    "framework": "公共安全",
+    "subject": "危险物品",
+    "keywords": "销爆/制爆信息、爆炸装置、枪支、管制器具",
+    "detail": "全面清理售卖及传播制作信息。"
+  },
+  {
+    "category": "违法",
+    "framework": "博彩管控",
+    "subject": "网络私彩赌博",
+    "keywords": "打击整治网络私彩赌博行为",
+    "detail": "整体专项行动导向。"
+  },
+  {
+    "category": "违法",
+    "framework": "博彩管控",
+    "subject": "违规App下架",
+    "keywords": "老爸茶、奖虫、奖王 App",
+    "detail": "私彩售卖活动，健全下架审核机制。"
+  },
+  {
+    "category": "违法",
+    "framework": "博彩管控",
+    "subject": "涉赌引流",
+    "keywords": "私彩招赌引流信息、涉赌账号",
+    "detail": "畅通举报渠道，从严处置相关账号。"
+  },
+  {
+    "category": "违法",
+    "framework": "博彩管控",
+    "subject": "风险预警",
+    "keywords": "涉赌风险预警拦截",
+    "detail": "加强技术端的预警与拦截。"
+  },
+  {
+    "category": "违法",
+    "framework": "公共安全",
+    "subject": "点火/引爆装置",
+    "keywords": "网上点火装置、引爆装置 (暴恐方向)",
+    "detail": "加强信息的审核与管控，防范暴恐。"
+  },
+  {
+    "category": "违法",
+    "framework": "翻墙工具",
+    "subject": "商品服务和售卖",
+    "keywords": "翻墙路由器、VPN、加速器、VPS、境外苹果账号等",
+    "detail": ""
+  },
+  {
+    "category": "违法",
+    "framework": "翻墙工具",
+    "subject": "应用商店、网盘",
+    "keywords": "快连 (LetsVPN)、迷雾通 (Geph)、蓝灯 (Lantern)、维卡 (Wika)、Shadowrocket、V2RayN、ExpressVPN、Astrill VPN、Surfshark、梯子、科学上网、加速器等",
+    "detail": "清理下架有关违规翻墙的工具和软件"
+  },
+  {
+    "category": "违法",
+    "framework": "翻墙工具",
+    "subject": "音视频、自媒体",
+    "keywords": "快连 (LetsVPN)、迷雾通 (Geph)、蓝灯 (Lantern)、维卡 (Wika)、Shadowrocket、V2RayN、ExpressVPN、Astrill VPN、Surfshark、梯子、科学上网、加速器等",
+    "detail": "清理传授翻墙、科学上网技巧、破关方法的内容"
+  },
+  {
+    "category": "违法",
+    "framework": "翻墙工具",
+    "subject": "搜索引擎",
+    "keywords": "快连 (LetsVPN)、迷雾通 (Geph)、蓝灯 (Lantern)、维卡 (Wika)、Shadowrocket、V2RayN、ExpressVPN、Astrill VPN、Surfshark、梯子、科学上网、加速器等",
+    "detail": "清理翻墙搜索结果，清理翻墙、科学上网相关引导词"
+  },
+  {
+    "category": "宗教",
+    "framework": "专项整治",
+    "subject": "伊斯兰教“三化”",
+    "keywords": "“三化”整治工作只做不说，三化概念也不得出现",
+    "detail": "严禁在社媒发布相关整改信息、正面评价或负面操作。"
+  },
+  {
+    "category": "宗教",
+    "framework": "敏感节点",
+    "subject": "民族宗教冲突",
+    "keywords": "3.14、5.13、7.5等事件时间节点监管；基督教，法轮功等",
+    "detail": "严查有害信息倒灌，监管民族分裂势力及邪教动向。"
+  },
+  {
+    "category": "宗教",
+    "framework": "朝觐管控",
+    "subject": "涉伊涉穆信息",
+    "keywords": "名额分配不均，维族、回民族名额减少、名额不公开",
+    "detail": "严禁质疑朝觐报名审核程序、攻击宗教政策。"
+  },
+  {
+    "category": "宗教",
+    "framework": "朝觐管控",
+    "subject": "涉伊涉穆信息",
+    "keywords": "质疑报名申请繁琐，审核严格，成功率低，有年龄限制等",
+    "detail": "严禁质疑朝觐报名审核程序、攻击宗教政策。"
+  },
+  {
+    "category": "宗教",
+    "framework": "朝觐管控",
+    "subject": "出境朝觐行为",
+    "keywords": "对允许出国朝觐人员发布质疑团进团出、收缴护照、对无法出国朝觐人员进行代朝、以借机敛财",
+    "detail": ""
+  },
+  {
+    "category": "宗教",
+    "framework": "朝觐管控",
+    "subject": "出境朝觐行为",
+    "keywords": "借机非法传教、渲染宗教氛围",
+    "detail": "严禁直播/短视频展现境外朝觐实况，严禁发布朝觐日记进行非法传教。"
+  },
+  {
+    "category": "宗教",
+    "framework": "朝觐管控",
+    "subject": "变相出境攻略",
+    "keywords": "借旅游签、探亲签、商务签、走线、偷渡笔记变相或绕道第三国的攻略、笔记等，传播走线、偷渡",
+    "detail": "严控绕道第三国朝觐的攻略信息。"
+  },
+  {
+    "category": "宗教",
+    "framework": "商业营销",
+    "subject": "跨境服务",
+    "keywords": "针对我国信众在圣寺周边开设餐馆、宾馆等营销信息",
+    "detail": "严禁针对我国信众在麦加、麦地那周边的营销活动。"
+  },
+  {
+    "category": "宗教",
+    "framework": "违法传教",
+    "subject": "互联网宗教活动",
+    "keywords": "网上传教、宗教教育培训、讲经链接",
+    "detail": "严禁个人/组织在互联网开展宗教活动。"
+  },
+  {
+    "category": "宗教",
+    "framework": "仪式管控",
+    "subject": "宗教仪式展示",
+    "keywords": "拜佛、烧香、受戒、诵经礼拜、弥撒、直播/录播",
+    "detail": "严禁以文字、图片、音视频等方式公开展示宗教仪式。"
+  },
+  {
+    "category": "宗教",
+    "framework": "专项方案",
+    "subject": "基督教/美西方渗透",
+    "keywords": "技术处置违法违规App，清理具有非法传教色彩的材料。",
+    "detail": "严禁基督教网上非法传教、美西方思潮渗透"
+  },
+  {
+    "category": "宗教",
+    "framework": "专项方案",
+    "subject": "藏传佛教管控",
+    "keywords": "达赖、藏族组织社交账号、反宣网络",
+    "detail": "严禁散布制造民族矛盾的信息。"
+  },
+  {
+    "category": "宗教",
+    "framework": "专项方案",
+    "subject": "涉疆伊斯兰教",
+    "keywords": "涉疆有害书籍、报告、煽动性言论",
+    "detail": "全面下架涉疆商品，防止境外群体拉拢。"
+  },
+  {
+    "category": "宗教",
+    "framework": "专项方案",
+    "subject": "宗教敛财/诈骗",
+    "keywords": "经营宗教用品、僧服、道袍、经书资料、封建迷信",
+    "detail": "打击网上非法经营，下架相关音视频及宗教商品。"
+  },
+  {
+    "category": "宗教",
+    "framework": "技术安全",
+    "subject": "AI宗教渗透",
+    "keywords": "人工智能散布错误思想、网游/社交软件渗透",
+    "detail": "持续加强对AI敛财及隐蔽渗透的技术监控。"
+  },
+  {
+    "category": "宗教",
+    "framework": "民族关系",
+    "subject": "民族历史/政策",
+    "keywords": "藏独歌曲、质疑文成公主功绩、西藏高考改革、清真泛化、否定统一",
+    "detail": "管控涉藏/涉回（清真泛化）/涉苗（挑动对立）的有害信息。"
+  },
+  {
+    "category": "宗教",
+    "framework": "服饰言论",
+    "subject": "违规发布",
+    "keywords": "演唱宗教歌曲、穿戴违规宗教服饰、解经讲经",
+    "detail": "严禁违规宣传宗教商品。"
+  }
+]

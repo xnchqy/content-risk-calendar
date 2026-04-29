@@ -1,0 +1,107 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, date, tags, summary, background, riskPoints, guidance } = entry.data;
+
+const isHighRisk = tags.includes('高风险');
+const isMediumRisk = tags.includes('中风险');
+
+// Get the month number for linking back
+const month = date.getMonth() + 1;
+const monthNames = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+---
+
+<Layout title={title + ' - 内容风控日历'}>
+  <Header />
+
+  <main class="max-w-3xl mx-auto px-4 py-6">
+
+    <!-- Back -->
+    <a href={'/?month=' + month} class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 mb-6 group">
+      <span class="group-hover:-translate-x-0.5 transition-transform">←</span>
+      返回 {monthNames[month - 1]}
+    </a>
+
+    <!-- Hero Card -->
+    <div class:list={[
+      "rounded-xl border-l-4 p-6 mb-6",
+      isHighRisk ? "border-red-400 bg-red-50" : isMediumRisk ? "border-amber-400 bg-amber-50" : "border-green-400 bg-green-50"
+    ]}>
+      <div class="flex items-center gap-2 mb-3 flex-wrap">
+        <span class:list={[
+          "text-xs font-bold px-2 py-1 rounded text-white",
+          isHighRisk ? "bg-red-600" : isMediumRisk ? "bg-amber-600" : "bg-green-600"
+        ]}>
+          {isHighRisk ? '高风险' : isMediumRisk ? '中风险' : '低风险'}
+        </span>
+        {tags.filter(t => t !== '高风险' && t !== '中风险' && t !== '低风险').map(tag => (
+          <span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded">{tag}</span>
+        ))}
+      </div>
+      <div class="text-xs text-gray-500 mb-2">
+        {date.toLocaleDateString('zh-CN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+      </div>
+      <h1 class="text-2xl font-bold text-gray-900 mb-2">{title}</h1>
+      <p class="text-gray-600 leading-relaxed">{summary}</p>
+    </div>
+
+    <!-- Sections -->
+    <div class="space-y-4">
+
+      <section class="bg-white rounded-xl border border-gray-200 p-5">
+        <h2 class="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+          <span>📖</span> 事件背景
+        </h2>
+        <p class="text-gray-600 leading-relaxed text-sm whitespace-pre-wrap">{background}</p>
+      </section>
+
+      <section class="bg-white rounded-xl border border-gray-200 p-5">
+        <h2 class="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+          <span>⚠️</span> 风险要点
+        </h2>
+        <ul class="space-y-2.5">
+          {riskPoints.map((point, i) => (
+            <li class="flex gap-3 text-sm text-gray-600">
+              <span class="shrink-0 w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center text-xs font-medium text-gray-500 mt-0.5">
+                {i + 1}
+              </span>
+              <span class="leading-relaxed">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="bg-white rounded-xl border border-gray-200 p-5">
+        <h2 class="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">
+          <span>📋</span> 处置指引
+        </h2>
+        <p class="text-gray-600 leading-relaxed text-sm whitespace-pre-wrap">{guidance}</p>
+      </section>
+
+      <!-- Link to monthly strategy -->
+      <a href={'/?month=' + month + '#strategy'} class="flex items-center justify-between bg-gray-900 hover:bg-gray-800 transition-colors rounded-xl p-4 group">
+        <div class="flex items-center gap-3">
+          <span class="text-xl">🧠</span>
+          <div>
+            <div class="text-sm font-semibold text-white">{monthNames[month - 1]}进阶研判策略</div>
+            <div class="text-xs text-gray-400 mt-0.5">查看本月完整风险研判框架</div>
+          </div>
+        </div>
+        <span class="text-gray-400 group-hover:text-white group-hover:translate-x-0.5 transition-all">→</span>
+      </a>
+
+    </div>
+  </main>
+</Layout>

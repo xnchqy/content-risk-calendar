@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import { getCollection } from 'astro:content';
+
+const events = await getCollection('events');
+const months = await getCollection('months');
+
+const today = new Date();
+const currentMonth = today.getMonth() + 1;
+
+const sorted = events.sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const eventsByMonth: Record<number, typeof sorted> = {};
+for (const e of sorted) {
+  const m = e.data.date.getMonth() + 1;
+  if (!eventsByMonth[m]) eventsByMonth[m] = [];
+  eventsByMonth[m].push(e);
+}
+
+const monthDataMap: Record<number, { deepStrategy?: string }> = {};
+for (const m of months) {
+  monthDataMap[m.data.month] = { deepStrategy: m.data.deepStrategy };
+}
+
+const monthNames = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+const allMonths = Array.from({ length: 12 }, (_, i) => i + 1);
+
+const totalEvents = events.length;
+const highRisk = events.filter(e => e.data.tags.includes('高风险')).length;
+const mediumRisk = events.filter(e => e.data.tags.includes('中风险')).length;
+
+// Build JSON data for JS
+const monthCountsJson = JSON.stringify(Object.fromEntries(Object.entries(eventsByMonth).map(([k, v]) => [k, v.length])));
+
+function parseGuidance(g) {
+  if (!g) return { monitor: '', prevent: '', intervene: '' };
+  var monitorMatch = g.match(/监测[：:]\s*([\s\S]*?)(?=预防[：:]|$)/);
+  var preventMatch = g.match(/预防[：:]\s*([\s\S]*?)(?=干预[：:]|$)/);
+  var interveneMatch = g.match(/干预[：:]\s*([\s\S]*)$/);
+  return {
+    monitor: monitorMatch ? monitorMatch[1].trim() : '',
+    prevent: preventMatch ? preventMatch[1].trim() : '',
+    intervene: interveneMatch ? interveneMatch[1].trim() : ''
+  };
+}
+
+const parsedGuidance = new Map();
+for (const e of events) {
+  parsedGuidance.set(e.slug, parseGuidance(e.data.guidance));
+}
+
+---
+
+<Layout title="内容风控日历 2026">
+  <Header />
+
+  <!-- Hidden data for JS -->
+  <div id="app-data" hidden
+    data-current-month={currentMonth}
+    data-month-counts={monthCountsJson}
+
+  ></div>
+
+  <div class="max-w-6xl mx-auto px-4 py-6 flex gap-6">
+
+    <!-- Sidebar -->
+    <aside class="w-36 shrink-0">
+      <div class="sticky top-20">
+        <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3 px-2">月份</p>
+        <nav class="space-y-0.5" id="month-nav">
+          {allMonths.map(m => {
+            const hasData = !!eventsByMonth[m];
+            const count = eventsByMonth[m]?.length ?? 0;
+            const isCurrent = m === currentMonth;
+            return (
+              <button
+                class:list={[
+                  "month-nav-btn w-full text-left px-3 py-2 rounded-lg text-sm transition-all flex items-center justify-between",
+                  hasData
+                    ? "text-gray-700 hover:bg-gray-100 cursor-pointer"
+                    : "text-gray-300 cursor-default",
+                  isCurrent && hasData ? "bg-blue-50 text-blue-700 font-semibold" : ""
+                ]}
+                data-month={m}
+                disabled={!hasData}
+                onclick={hasData ? `switchMonth(${m})` : undefined}
+              >
+                <span>{monthNames[m - 1]}</span>
+                {hasData && (
+                  <span class:list={[
+                    "text-xs rounded-full px-1.5 py-0.5 font-medium",
+                    isCurrent ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-500"
+                  ]}>{count}</span>
+                )}
+              </button>
+            );
+          })}
+        </nav>
+
+        <div class="mt-6 px-2 space-y-2">
+          <div class="text-xs text-gray-400">全年统计</div>
+          <div class="bg-white border border-gray-200 rounded-lg p-3 space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-gray-500">总节点</span>
+              <span class="font-bold text-gray-800">{totalEvents}</span>
+            </div>
+            <div class="flex justify-between text-xs">
+              <span class="text-red-500">高风险</span>
+              <span class="font-bold text-red-600">{highRisk}</span>
+            </div>
+            <div class="flex justify-between text-xs">
+              <span class="text-amber-500">中风险</span>
+              <span class="font-bold text-amber-600">{mediumRisk}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 min-w-0">
+
+      <div class="mb-5 flex items-center justify-between">
+        <div>
+          <h1 class="text-xl font-bold text-gray-900" id="month-title">加载中…</h1>
+          <p class="text-sm text-gray-400 mt-0.5" id="month-subtitle"></p>
+        </div>
+        <div class="flex gap-1 bg-gray-100 rounded-lg p-1">
+          <button id="filter-all" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-md bg-white text-gray-700 shadow-sm" onclick="setFilter('all')">全部</button>
+          <button id="filter-high" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-700" onclick="setFilter('high')">高风险</button>
+          <button id="filter-medium" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-700" onclick="setFilter('medium')">中风险</button>
+          <button id="filter-low" class="filter-btn px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-700" onclick="setFilter('low')">低风险</button>
+        </div>
+      </div>
+
+      <!-- Event List -->
+      <div id="event-container" class="space-y-3">
+        {allMonths.map(m => (
+          <div class="month-section" data-month={m} style="display:none">
+            {(eventsByMonth[m] ?? []).map(event => {
+              const isHighRisk = event.data.tags.includes('高风险');
+              const isMediumRisk = event.data.tags.includes('中风险');
+              const level = isHighRisk ? 'high' : isMediumRisk ? 'medium' : 'low';
+              const daysUntil = Math.ceil((event.data.date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+              const isPast = event.data.date < today;
+              const borderColor = isHighRisk ? 'border-red-400' : isMediumRisk ? 'border-amber-400' : 'border-green-400';
+              const bgColor = isHighRisk ? 'bg-red-50' : isMediumRisk ? 'bg-amber-50' : 'bg-green-50';
+              const tagBg = isHighRisk ? 'bg-red-600' : isMediumRisk ? 'bg-amber-600' : 'bg-green-600';
+              const label = isHighRisk ? '高风险' : isMediumRisk ? '中风险' : '低风险';
+
+              return (
+                <article
+                  class:list={["event-card rounded-xl border-l-4 border border-t border-r border-b p-4 flex gap-4", borderColor, bgColor]}
+                  data-level={level}
+                >
+                  <div class="shrink-0 w-14 text-center pt-0.5">
+                    <div class="text-xs text-gray-400">{event.data.date.toLocaleDateString('zh-CN', { month: 'short' })}</div>
+                    <div class="text-2xl font-bold text-gray-900 leading-none">
+                      {String(event.data.date.getDate()).padStart(2, '0')}
+                    </div>
+                    <div class="text-xs text-gray-400 mt-0.5">
+                      {event.data.date.toLocaleDateString('zh-CN', { weekday: 'short' })}
+                    </div>
+                  </div>
+
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-start justify-between gap-2 mb-1.5">
+                      <div class="flex items-center gap-2 flex-wrap">
+                        <span class:list={["text-xs font-bold px-2 py-0.5 rounded text-white", tagBg]}>{label}</span>
+                        <span class="text-sm font-semibold text-gray-900">{event.data.title}</span>
+                        {isPast && <span class="text-xs text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">已过</span>}
+                        {!isPast && daysUntil <= 14 && daysUntil > 0 && (
+                          <span class="text-xs font-medium text-orange-600 bg-orange-50 px-1.5 py-0.5 rounded">
+                            {daysUntil <= 3 ? '⚡ ' + daysUntil + '天后' : daysUntil + '天后'}
+                          </span>
+                        )}
+                        {!isPast && daysUntil === 0 && (
+                          <span class="text-xs font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded">今天</span>
+                        )}
+                      </div>
+                      <a href={'/events/' + event.slug} class="shrink-0 text-xs text-gray-400 hover:text-blue-600 hover:underline whitespace-nowrap">
+                        详情 →
+                      </a>
+                    </div>
+
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">{event.data.summary}</p>
+
+                    <div class="bg-white/70 border border-gray-200 rounded-lg p-2.5 mb-2">
+                      <div class="text-xs font-semibold text-gray-600 mb-1.5 flex items-center gap-1">
+                        <span>📋</span> 事件背景
+                      </div>
+                      <p class="text-xs text-gray-600 leading-relaxed">{event.data.background}</p>
+                    </div>
+
+                    <div class="bg-white/70 border border-gray-200 rounded-lg p-2.5 mb-2">
+                      <div class="text-xs font-semibold text-gray-600 mb-1.5 flex items-center gap-1">
+                        <span>⚠️</span> 风险要点
+                      </div>
+                      <ul class="text-xs text-gray-600 space-y-1">
+                        {event.data.riskPoints.map(point => (
+                          <li class="flex gap-1.5">
+                            <span class="text-red-400 shrink-0 mt-0.5">•</span>
+                            <span class="leading-relaxed">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div class="mt-2">
+                      <div class="text-xs font-semibold text-gray-600 mb-2 flex items-center gap-1">
+                        <span>📌</span> 处置指引
+                      </div>
+                      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
+                          <div class="text-xs font-semibold text-blue-700 mb-1.5 flex items-center gap-1">
+                            <span>🔍</span> 监测
+                          </div>
+                          <div class="text-xs text-blue-800 leading-relaxed whitespace-pre-wrap">{parsedGuidance.get(event.slug).monitor}</div>
+                        </div>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-2.5">
+                          <div class="text-xs font-semibold text-green-700 mb-1.5 flex items-center gap-1">
+                            <span>🛡</span> 预防
+                          </div>
+                          <div class="text-xs text-green-800 leading-relaxed whitespace-pre-wrap">{parsedGuidance.get(event.slug).prevent}</div>
+                        </div>
+                        <div class="bg-orange-50 border border-orange-200 rounded-lg p-2.5">
+                          <div class="text-xs font-semibold text-orange-700 mb-1.5 flex items-center gap-1">
+                            <span>⚡</span> 干预
+                          </div>
+                          <div class="text-xs text-orange-800 leading-relaxed whitespace-pre-wrap">{parsedGuidance.get(event.slug).intervene}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+
+      <div id="empty-state" class="hidden text-center py-20 text-gray-300">
+        <div class="text-5xl mb-3">📭</div>
+        <p class="text-sm">本月暂无风控事件数据</p>
+      </div>
+
+
+
+    </main>
+  </div>
+
+  <script is:inline>
+    const monthNames = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+    const appData = document.getElementById('app-data');
+    const currentMonth = parseInt(appData.dataset.currentMonth);
+    const monthCounts = JSON.parse(appData.dataset.monthCounts);
+
+
+    let activeMonth = currentMonth;
+    let activeFilter = 'all';
+
+    function switchMonth(m) {
+      activeMonth = m;
+
+      document.querySelectorAll('.month-nav-btn').forEach(btn => {
+        const bm = parseInt(btn.dataset.month);
+        const badge = btn.querySelector('span:last-child');
+        btn.classList.remove('bg-blue-50', 'text-blue-700', 'font-semibold');
+        if (bm === m) {
+          btn.classList.add('bg-blue-50', 'text-blue-700', 'font-semibold');
+          if (badge) { badge.classList.remove('bg-gray-100', 'text-gray-500'); badge.classList.add('bg-blue-100', 'text-blue-600'); }
+        } else {
+          if (badge) { badge.classList.remove('bg-blue-100', 'text-blue-600'); badge.classList.add('bg-gray-100', 'text-gray-500'); }
+        }
+      });
+
+      const count = monthCounts[m] || 0;
+      document.getElementById('month-title').textContent = '2026年 ' + monthNames[m - 1];
+      document.getElementById('month-subtitle').textContent = count > 0 ? '共 ' + count + ' 个风控节点' : '暂无数据';
+
+      document.querySelectorAll('.month-section').forEach(sec => {
+        sec.style.display = parseInt(sec.dataset.month) === m ? '' : 'none';
+      });
+
+
+      document.getElementById('empty-state').classList.toggle('hidden', count > 0);
+      renderFilter();
+
+    }
+
+    function setFilter(f) {
+      activeFilter = f;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-gray-700', 'shadow-sm');
+        btn.classList.add('text-gray-500');
+      });
+      const activeBtn = document.getElementById('filter-' + f);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-white', 'text-gray-700', 'shadow-sm');
+        activeBtn.classList.remove('text-gray-500');
+      }
+      renderFilter();
+    }
+
+    function renderFilter() {
+      const activeSection = document.querySelector('.month-section[data-month="' + activeMonth + '"]');
+      if (!activeSection) return;
+      activeSection.querySelectorAll('.event-card').forEach(card => {
+        card.style.display = (activeFilter === 'all' || card.dataset.level === activeFilter) ? '' : 'none';
+      });
+    }
+
+    // Handle URL ?month= parameter
+    function getMonthFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const m = parseInt(params.get('month'));
+      return (m >= 1 && m <= 12) ? m : currentMonth;
+    }
+
+    switchMonth(getMonthFromUrl());
+
+    window.switchMonth = switchMonth;
+    window.setFilter = setFilter;
+  </script>
+</Layout>

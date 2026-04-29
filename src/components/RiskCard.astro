@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  tags: string[];
+  summary: string;
+  slug: string;
+  level?: 'high' | 'medium' | 'low';
+}
+
+const { title, date, tags, summary, slug, level = 'medium' } = Astro.props;
+
+const levelColors = {
+  high: 'border-red-400 bg-red-50',
+  medium: 'border-amber-400 bg-amber-50',
+  low: 'border-green-400 bg-green-50',
+};
+
+const levelTextColors = {
+  high: 'text-red-700',
+  medium: 'text-amber-700',
+  low: 'text-green-700',
+};
+
+const formattedDate = new Date(date).toLocaleDateString('zh-CN', {
+  month: 'long',
+  day: 'numeric',
+});
+---
+<article class:list={["rounded-xl border-l-4 p-4 shadow-sm hover:shadow-md transition-shadow", levelColors[level]]}>
+  <div class="flex items-start justify-between gap-3">
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 flex-wrap mb-1">
+        <span class="text-xs text-gray-500">{formattedDate}</span>
+        {tags.map(tag => (
+          <span class:list={["text-xs px-1.5 py-0.5 rounded font-medium", levelTextColors[level]]}>
+            {tag}
+          </span>
+        ))}
+      </div>
+      <h3 class="font-semibold text-gray-900 text-base leading-snug">{title}</h3>
+      <p class="text-sm text-gray-600 mt-1 line-clamp-2">{summary}</p>
+    </div>
+    <a
+      href={`/events/${slug}`}
+      class="shrink-0 text-gray-400 hover:text-gray-600 text-sm px-2 py-1"
+    >
+      详情 →
+    </a>
+  </div>
+</article>
